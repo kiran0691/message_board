@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MessageBoard</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a href="/posts" class="navbar-brand">Message Board</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <%if not user_signed_in?%>
+          <li><a href="/users/sign_in">Sign in</a></li>
+        <%else%>
+          <li><a href="#"><%= "Logged in as #{current_user.email}"%></a></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></a></li>
+        <%end%>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<div id = "wrapper">
+  <div class = "post">
+    <h3><%= @post.tile%></h3>
+    <%= @post.body%>
+    <p class = "author" align = "right">by <a href="#"><%= @post.user.first_name + " " + @post.user.last_name %></a></p>
+  </div>
+  <%= link_to 'Delete', @post, method: :delete, class: "btn btn-default btn-danger", data: { confirm: 'Are you sure?' } if @post.user_id == current_user.id%>
+  <%= link_to "Back", posts_path, class: "btn btn-default btn-primary" %>
+
+
+  <h4>Comments</h4>
+  <div class="comments">
+    <%@comments.each do |comment|%>
+      <div class="comment-body">
+        <a href="#"><%= comment.user.first_name unless comment.body.blank?%></a>:
+        <div><%= comment.body %></div>
+      </div>
+    <%end%>
+    <%= will_paginate @comments %>
+  </div>
+
+  <div class="new-comment">
+    <%= form_for [@post,@comment],:html => {:class => "form-horizontal center"}  do |f| %>
+      <%= f.text_area :body, class: "form-control" %>
+      <%= f.submit "Submit", class: "btn btn-sm btn-primary"%>
+    <%end%>
+  </div>
+</div>

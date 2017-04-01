@@ -1,0 +1,53 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+  font-family: sans-serif;
+}
+
+#wrapper{
+  width: 900px;
+  margin: auto;
+}
+
+.post{
+  background-color: #eee;
+}
+
+.title{
+  font-size: 18px;
+  font-family: serif;
+}
+
+.comment-body{
+  width: 500px;
+  background-color: #eee;
+  margin: 5px;
+  height: auto;
+}
+
+
+.author{
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.new-comment{
+  width: 500px;
+}
+
+#new-post{
+  width: 900px;
+  margin: auto;
+}
+
+#new-post > h4{
+  width: 100px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.new-body, .new-title{
+  font-size: 15px;
+  font-weight: bold;
+}
